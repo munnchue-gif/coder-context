@@ -1,11 +1,11 @@
 # CLEAN HANDOFF FORMAT
 
-When context is low or a session ends, leave this for the next model:
+When context is low or a session ends, leave this both in chat and as the latest entry in the Creation Block’s WORKLOG.md:
 
 ```markdown
 ## Handoff
 
-**Job:** [title]
+**Block:** [path]
 **Status:** [done / partial / blocked]
 
 ### Completed
