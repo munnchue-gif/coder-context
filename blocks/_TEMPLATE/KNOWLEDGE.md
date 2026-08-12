@@ -1,16 +1,14 @@
-# KNOWLEDGE — what the model needs to know for this job
+# KNOWLEDGE — fresh for this job only
 
-Put here only the facts, design decisions, interfaces, and context required for *this* Creation Block.
+Put here ONLY the facts needed for this task.
 
-Keep it focused. Do not dump the entire project history.
-
-## Living system facts (if relevant)
-- Source of truth repo / package layout
-- Public entry points that must stay coherent
-- Locked decisions that must not be violated
-
-## Design intent for this job
+## Live interfaces / shapes this job must use
 - ...
 
-## Discarded / non-authoritative material
-- List any previous weak sketches and explicitly mark them as discarded so the model does not treat them as the thing to fix.
+## Package / import rules
+- ...
+
+## What this job does NOT need
+- No history from other jobs
+- No rejected designs
+- No unrelated frameworks

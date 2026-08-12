@@ -1,29 +1,32 @@
 # OBJECTIVE
 
-## HARD LAYOUT RULE (read first)
-- You are working in THIS Creation Block only.
-- You may APPEND to WORKLOG.md and may add files under deliverables/ if requested.
-- You must NEVER edit, delete, rename, or move this block’s OBJECTIVE.md, KNOWLEDGE.md, REFERENCES.md, or any other Creation Block.
-- Previous blocks are permanent history. Leave them untouched.
+## HARD LAYOUT RULE
+- Work only in this Creation Block.
+- You may append to WORKLOG.md and add files under deliverables/ if asked.
+- Never edit OBJECTIVE.md, KNOWLEDGE.md, REFERENCES.md, or any other block.
+- Never invent modules or types that the job does not ask for.
 
 ## Job Title
 [short clear name]
 
 ## Goal
-[One or two paragraphs stating exactly what must be achieved.]
+[State what correct finished files look like. Prefer “create the correct version of X” over “fix the old Y”.]
 
-## Constraints (locked)
-- Prefer existing design over reinvention
+## Constraints
+- Prefer existing living structure
+- Only change what the goal requires
 - [any other hard constraints]
 
 ## Out of scope
-- [things the model must not touch or invent]
-- Modifying any Creation Block structure or history
+- Other Creation Blocks
+- Unrelated files or frameworks
+- Inventing parallel types/modules
 
 ## Success criteria
-- [how we will know the job is done]
-- [tests or commands that must pass]
+- [how we know it is done]
+- [verification commands]
 
 ## Deliverables
-- [exact files or patches expected]
-- Model must also append a work-log entry to WORKLOG.md
+- Complete file content(s) for the requested module(s)
+- Short plain-English summary
+- Append one WORKLOG entry

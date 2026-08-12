@@ -1,37 +1,50 @@
 # OBJECTIVE
 
-## HARD LAYOUT RULE (read first)
-- You are working in THIS Creation Block only (`blocks/2026-08-12-finding-unify`).
-- You may APPEND to WORKLOG.md and may add files under deliverables/ if requested.
-- You must NEVER edit, delete, rename, or move this block’s OBJECTIVE.md, KNOWLEDGE.md, REFERENCES.md, or any other Creation Block.
-- The previous ledger/kernel work is COMPLETE and must not be touched by this job.
-- Previous blocks are permanent history. Leave them untouched.
+## HARD LAYOUT RULE
+- Work only in this Creation Block.
+- You may append to WORKLOG.md and add files under deliverables/ if asked.
+- Never edit OBJECTIVE.md, KNOWLEDGE.md, REFERENCES.md, or any other block.
+- Never invent new modules (especially no new finding.py).
 
 ## Job Title
-Unify all Finding constructors onto the live shape + make_finding
+Create clean Finding construction in the living fabric modules
 
 ## Goal
-Sweep the living fabric so every place that constructs a Finding uses either the live `fabric.types.Finding` shape or the compatibility helper `make_finding`. Remove remaining old-style constructors (`section_id=`, `kind=`, integer severity) so the deferred design-suite tests can be re-enabled cleanly.
+Produce the correct, complete versions of the modules that currently construct Findings, so every Finding is built through the live shape (or make_finding) and uses the live field names.
 
-## Constraints (locked)
-- Live shape is already defined in `fabric/types.py`: id, organ, severity:str, title, detail (+ optional timestamp/metadata)
-- `make_finding` already exists and maps old fields → live shape
-- Do not invent a second Finding type
-- Prefer smallest verifiable patches
-- Keep the 62-test baseline green
-- Do not modify the already-completed ledger.py or kernel.py
+Target files in the living repo (https://github.com/munnchue-gif/the-forge):
+- forge/fabric/bind/ollama_capsule.py
+- forge/fabric/bind/openvino_seat.py
+- forge/fabric/conduit.py
+- forge/fabric/judge.py
+
+(Tests can be handled in a later pass once production files are correct.)
+
+## What “correct” means
+- Import Finding and make_finding from fabric.types only
+- Construct Findings only via make_finding(...) or the live Finding dataclass
+- Use live field names: id, organ, severity (str), title, detail
+- Do not create any new Finding module
+- Do not change ledger.py or kernel.py
+
+## Constraints
+- Prefer the existing structure of each file; only change what is required for correct Finding construction and field access
+- Keep behavior the same; this is a shape/construction cleanup, not a redesign
+- One file (or one small group) at a time if the operator asks
 
 ## Out of scope
-- Changing the live Finding dataclass itself
-- Model binding or bridge changes
-- Large refactors unrelated to Finding construction
-- Touching any other Creation Block
+- Creating finding.py or any second Finding type
+- Rewriting judge/conduit into a new architecture
+- Touching ledger, kernel, or other Creation Blocks
+- Next.js / unrelated starter files
 
 ## Success criteria
-- No remaining old-style Finding(...) calls that use section_id / kind / int severity without going through make_finding
-- All existing tests that touch Findings still pass
-- Clear list of files changed + verification commands
+- Delivered files import from fabric.types and construct Findings correctly
+- No section_id= / kind= / int-severity constructors remain in those files
+- No .section_id / .kind field reads remain on Finding objects in those files
+- Short verification commands provided
 
 ## Deliverables
-- Patches or full files for every place that needed updating (in the-forge, not in the blocks)
-- Work-log entry in this block’s WORKLOG.md
+- Complete file content for the requested module(s)
+- One plain-English summary of what changed
+- Append one entry to this block’s WORKLOG.md
