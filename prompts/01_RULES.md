@@ -17,6 +17,19 @@ These rules apply on top of the Apex System Prompt for every job.
 - Prefer pure functions and clear interfaces where they already fit the design.
 - When changing behavior, note the old behavior and the new behavior in one sentence.
 
+## Creation Block protection (mandatory)
+
+- Work in ONE block only.
+- You may only:
+  - Append new entries to that block’s WORKLOG.md
+  - Add files under that block’s deliverables/ folder (if the objective requests deliverables)
+- You must never edit, delete, rename, or move:
+  - OBJECTIVE.md, KNOWLEDGE.md, REFERENCES.md of any block
+  - Any other block
+  - blocks/_TEMPLATE/
+  - Previous WORKLOG entries
+- Completed blocks are permanent history. They are not to be “cleaned up” or rewritten by models.
+
 ## Durable logging (mandatory)
 
 After every substantive piece of work you must:
@@ -35,5 +48,6 @@ Stop and hand off if:
 - Required context is missing
 - The objective conflicts with an existing locked decision and you have no authority to override it
 - Context window is becoming tight
+- You are about to touch another Creation Block or its history
 
 Never silently invent a solution to a missing requirement.
