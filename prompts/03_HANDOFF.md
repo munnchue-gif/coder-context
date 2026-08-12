@@ -1,30 +1,10 @@
-# CLEAN HANDOFF FORMAT
+# 03_HANDOFF
 
-When context is low or a session ends, leave this both in chat and as the latest entry in the Creation Block’s WORKLOG.md:
+When stopping or finishing:
 
-```markdown
-## Handoff
+- Append one clear entry to the current Creation Block’s WORKLOG.md
+- In chat, give a short human summary of what was added
+- List exact next commands or the next BLOCK_OPEN path if known
+- Never leave critical state only in chat history
 
-**Block:** [path]
-**Status:** [done / partial / blocked]
-
-### Completed
-- ...
-
-### Remaining (ordered)
-1. ...
-2. ...
-
-### Exact next commands
-```bash
-# paste runnable commands
-```
-
-### Critical context the next model must not lose
-- ...
-
-### Open questions / blockers
-- ...
-```
-
-Never leave half-applied changes without a handoff.
+If the job is complete, say so. If not, say exactly what remains.

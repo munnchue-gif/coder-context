@@ -1,43 +1,55 @@
 # coder-context
 
-**Universal apex context kit + labeled Creation Blocks for coding models.**
+**Universal apex operating system + labeled Creation Blocks for coding models.**
 
-## Core idea
+## Four active surfaces
 
-- One universal apex prompt set
-- Every coding job lives in its own **Creation Block** under `blocks/`
-- Each block carries a **fresh, minimal knowledge base** for that job only
-- No leftover knowledge from previous jobs or rejected work
-- Prefer “create the correct finished files” over “fix the old broken ones”
-- Models may append to the current block’s WORKLOG and add deliverables; they must never alter block structure or history
+| Repo | Permission | Role |
+|------|------------|------|
+| **coder-context** (this repo) | READ-ONLY for models | Apex prompts + one job at a time |
+| **the-forge** | READ/WRITE | Live fabric source of truth |
+| **forge-os-core** | READ-ONLY | STATUS.md + LOCKED.md |
+| **forge-copilot** | READ/WRITE | Protocol, node logs, handoffs |
+
+All other repos (forge-spine, fabric-core, UI/glass, arena, etc.) are **blacklisted** for core coding jobs.
 
 ## Layout
 
 ```
 coder-context/
-├── prompts/                 ← universal OS (read every time)
+├── prompts/
+│   ├── 00_APEX_MASTER.md     ← load this first (system OS)
+│   ├── 01_RULES.md
+│   ├── 02_OUTPUT_CONTRACT.md
+│   └── 03_HANDOFF.md
 ├── blocks/
-│   ├── _TEMPLATE/           ← copy for each new job
-│   └── YYYY-MM-DD-name/     ← one job, fresh knowledge only
+│   ├── _TEMPLATE/            ← copy for each new job
+│   └── YYYY-MM-DD-name/      ← one job, fresh knowledge only
 │       ├── OBJECTIVE.md
-│       ├── KNOWLEDGE.md     ← only what THIS job needs
+│       ├── KNOWLEDGE.md
 │       ├── REFERENCES.md
-│       ├── WORKLOG.md       ← append-only
-│       └── deliverables/    ← optional
-└── archive/                 ← human-managed only (optional)
+│       ├── WORKLOG.md        ← append-only
+│       └── deliverables/     ← optional
+└── archive/                  ← human-managed only
 ```
+
+## How a model must work
+
+1. Load `prompts/00_APEX_MASTER.md` (then 01–03).
+2. Open **one** Creation Block only.
+3. Create correct files in `the-forge` as the block specifies.
+4. Append WORKLOG; leave a clean handoff.
 
 ## Rules
 
-- One job = one block
-- Knowledge in a block is only for that job
-- Rejected or obsolete material is not kept in active blocks
-- Models never edit OBJECTIVE / KNOWLEDGE / REFERENCES or other blocks
-- Completed blocks stay as history; humans may off-load later
+- Create the correct finished files; do not “fix” rejected work.
+- Fresh knowledge only inside each block.
+- Never invent parallel modules (e.g. no new finding.py).
+- Kernel and Ledger are verified — do not touch unless the block says so.
+- Blocks are permanent history; models never delete or rewrite them.
 
-## Starting a new job
+## Starting a new job (human)
 
-1. Copy `blocks/_TEMPLATE/` to `blocks/YYYY-MM-DD-short-name/`
-2. Write a fresh OBJECTIVE + KNOWLEDGE that contain only what the job needs
-3. Point the model at that block
-4. Prefer create-the-correct-files framing over fix-the-old-files framing
+1. Copy `blocks/_TEMPLATE/` → `blocks/YYYY-MM-DD-short-name/`
+2. Write fresh OBJECTIVE + KNOWLEDGE (only what this job needs)
+3. Tell the model: read 00_APEX_MASTER, then BLOCK_OPEN that path

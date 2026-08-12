@@ -1,8 +1,8 @@
 # WORK LOG — blocks/2026-08-12-finding-unify
 
-Append-only. Never delete previous entries.
+Append-only.
 
 ---
 
-### 2026-08-12 — Block reset to fresh knowledge
-**Summary for human:** Creation Block cleaned. Knowledge is now only what this job needs (live Finding shape + target modules). Rejected parallel designs and old job baggage removed. Job is framed as creating correct module versions, not fixing rejected work.
+### 2026-08-12 — Block aligned to APEX_MASTER
+**Summary for human:** Block refreshed under four-surface architecture + blacklist. Knowledge is fresh and create-oriented. Ready for BLOCK_OPEN.

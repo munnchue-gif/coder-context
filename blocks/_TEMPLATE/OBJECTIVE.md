@@ -2,31 +2,31 @@
 
 ## HARD LAYOUT RULE
 - Work only in this Creation Block.
-- You may append to WORKLOG.md and add files under deliverables/ if asked.
-- Never edit OBJECTIVE.md, KNOWLEDGE.md, REFERENCES.md, or any other block.
-- Never invent modules or types that the job does not ask for.
+- Append to WORKLOG.md only; never edit OBJECTIVE / KNOWLEDGE / REFERENCES.
+- Write code only into `the-forge` at the paths named below.
+- Do not invent new modules or types.
+- Ignore blacklisted repos (spine, fabric-core, UI, arena).
 
 ## Job Title
 [short clear name]
 
 ## Goal
-[State what correct finished files look like. Prefer “create the correct version of X” over “fix the old Y”.]
+[Describe the correct finished files to create. Prefer create-the-correct-version language.]
+
+## Target paths in the-forge
+- [exact paths]
 
 ## Constraints
-- Prefer existing living structure
-- Only change what the goal requires
-- [any other hard constraints]
+- Use live types from fabric/types.py
+- [other locks]
 
 ## Out of scope
-- Other Creation Blocks
-- Unrelated files or frameworks
-- Inventing parallel types/modules
+- Other blocks, blacklisted repos, ledger/kernel unless listed above
 
 ## Success criteria
-- [how we know it is done]
-- [verification commands]
+- [checks + verification commands]
 
 ## Deliverables
-- Complete file content(s) for the requested module(s)
-- Short plain-English summary
-- Append one WORKLOG entry
+- Complete file content(s)
+- Short human summary
+- One WORKLOG entry

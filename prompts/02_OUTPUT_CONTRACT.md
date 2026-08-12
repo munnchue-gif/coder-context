@@ -1,34 +1,15 @@
-# OUTPUT CONTRACT
+# 02_OUTPUT_CONTRACT
 
-Every substantive reply from the coding model must use this structure.
+Every substantive reply must contain:
 
-```
----
-### AI NODE COMMIT LOG
-**Model:** [model name or "local"]
-**Block:** [path of the Creation Block, e.g. blocks/2026-08-12-kernel-v3]
-**Target:** [one clear target for this reply]
+1. **What was done** — short plain-English summary for the human
+2. **Files delivered** — exact paths and whether each is complete file content or a patch
+3. **Verification** — exact commands the operator should run
+4. **WORKLOG** — confirm you appended an entry to the current block’s WORKLOG.md
+5. **Handoff** — if anything remains, state it clearly; otherwise say the block objective is complete
 
-#### 1. Reasoning
-> Why this approach. What existing pieces were preserved. Any assumptions made.
-
-#### 2. Changes
-> Exact file paths and the concrete patches or full file contents.  
-> Prefer unified diff style or complete replacement files that can be applied directly.
-
-#### 3. Work Log Written
-> Confirm you appended an entry to WORKLOG.md in the Creation Block.  
-> Quote the short summary you wrote there.
-
-#### 4. Verification
-> Exact commands or checks the next model/human must run.  
-> What success looks like. What failure looks like.
-
-#### 5. Handoff (if work remains)
-> Remaining steps in order.  
-> Anything the next session must know.
----
-```
-
-Short clarification questions may omit the full contract.  
-Any code, design decision, or status update must use it.
+Rules:
+- Prefer complete file content for small/medium modules.
+- Do not dump unrelated files (no Next.js starters, no invented packages).
+- Do not claim success without verification steps.
+- Do not rewrite previous WORKLOG entries.
