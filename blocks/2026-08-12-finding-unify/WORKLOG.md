@@ -38,3 +38,29 @@ bare `Finding(`, `fabric.overseer`, `.section_id`, `.kind`.
 its own refresh pass; out of scope for this block's four module paths.
 
 **Next:** Task #4 — `forge/fabric/conduit.py`.
+
+---
+
+### 2026-08-12 — Task 4 complete (conduit.py) — BLOCK CLOSED
+
+**Summary for human:** Final target migrated. All four modules in the block now
+construct Findings exclusively via `make_finding` from `fabric.types`. Creation
+Block `2026-08-12-finding-unify` is complete.
+
+**Per file:**
+- `forge/fabric/conduit.py` — replaced `from fabric.overseer import Overseer, Finding`
+  with `from fabric.overseer import Overseer` + `from fabric.types import Finding, make_finding`.
+  `HeuristicSeat.judge` now builds via `make_finding(id=section, organ="conduit",
+  severity=int, title=..., detail=...)`. `_default_corrector` uses `finding.id`
+  (was `finding.section_id`). `_command` ranks live severity strings via `_sev_rank`
+  / `_SEV_RANK` (ACT_THRESHOLD semantics preserved). Control events use `f.title`
+  (was `f.kind`).
+
+**Integrity:** zero `section_id=` / `kind=` / bare `Finding(` / `.section_id` /
+`.kind` reads. Only remaining `fabric.overseer` import is for `Overseer` (required).
+
+**Not touched:** ledger.py, kernel.py, test_*.py, all other modules, all other blocks.
+**Still flagged:** `test_judge.py` (and any other legacy tests) need a separate
+refresh pass before the full design-suite can be claimed green.
+
+**Block status:** COMPLETE. All four target paths delivered.
